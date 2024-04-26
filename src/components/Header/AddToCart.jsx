@@ -40,6 +40,7 @@ function AddToCart() {
               fontSize: "20px",
               fontWeight: "bold",
               fontFamily: "Rubik",
+              color: "white",
             }}
           >
             Your Shopping Cart ({cartItems.length})
