@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+.ant-drawer-body {
+  margin-top: 2rem !important;
+}
+
+.ant-drawer-close {
+  position: absolute;
+  right: 0;
+  font-size: 30px !important;
+  top: 15px;
+}
+.ant-drawer-header {
+  border-bottom: none !important;
+  position: relative;
+}
+.ant-drawer-body {
+  margin-top: 8rem;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "iamge1 image2 image3", "image1 image4 image3";
+}
