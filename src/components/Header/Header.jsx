@@ -19,7 +19,7 @@ function Header() {
           <Link to="/">
             <img
               src="/logo1.png"
-              className="h-20 object-contain w-full"
+              className="h-20  max-sm:h-28 object-contain w-full"
               alt=""
             />
           </Link>
