@@ -6,7 +6,7 @@ import SignUp from "./components/Login-user/SIgnUp";
 // import ProductPage from "./components/page/Product_Page";
 // import Categories from "./components/page/Categories";
 import { ProductProviderContext } from "./components/Product/ProductProviderContext";
-import { CartProvider } from "./CartContext";
+import { CartProvider } from "./context/CartContext";
 import { FloatButton } from "antd";
 
 function App() {
