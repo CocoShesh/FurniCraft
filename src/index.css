@@ -10,11 +10,18 @@ body {
   margin-top: 2rem !important;
 }
 
+.ant-drawer-content {
+  background-color: #090d15 !important;
+}
+.ant-drawer-mask {
+  background-color: #d4d4d436 !important;
+}
 .ant-drawer-close {
   position: absolute;
-  right: 0;
-  font-size: 30px !important;
+  right: 5px;
+  font-size: 20px !important;
   top: 15px;
+  color: white !important;
 }
 .ant-drawer-header {
   border-bottom: none !important;
