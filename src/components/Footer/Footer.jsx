@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <section className=" flex items-center justify-center pb-14  pt-5 gap-10 px-14 max-sm:px-6 2xl:mx-auto max-lg:flex-col 2xl:w-[1600px]">
       <footer className="footer   text-white   ">
-        <section className=" footer font-sans text-xl gap-10 max-md:flex">
+        <section className=" footer  text-xl gap-10 max-md:flex">
           <nav className="w-full">
             <header className="footer-title">Services</header>
             <a className="link link-hover">Branding</a>
