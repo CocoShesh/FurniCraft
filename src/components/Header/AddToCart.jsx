@@ -3,7 +3,7 @@ import { Button, Drawer, Tooltip, Badge } from "antd";
 import { BsCartFill } from "react-icons/bs";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { MdEditSquare } from "react-icons/md";
-import CartContext from "../../CartContext";
+import CartContext from "../../context/CartContext";
 function AddToCart() {
   const { cartItems, setCartItems, deleteItem } = useContext(CartContext);
   const [open, setOpen] = useState(false);
