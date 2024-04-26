@@ -9,14 +9,14 @@ export default function ImageGallery() {
               <img
                 src="https://minimalist-e-commerce.vercel.app/static/media/home-img-1.3de7da0f1e4634169c62.jpg"
                 alt="Two each of gray, white, and black shirts laying flat"
-                className="object-cover rounded-xl h-full  max-md:h-[350px] w-full brightness-75 hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
+                className="object-cover rounded-xl h-[600px] max-md:h-[350px] w-full brightness-75 hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
               />
             </div>
             <div className=" grid  lg:h-[600px]   ">
               <img
                 src="https://minimalist-e-commerce.vercel.app/static/media/home-img-2.4daa711cfda65062efd0.jpg"
                 alt="Two each of gray, white, and black shirts laying flat"
-                className="object-cover rounded-xl h-full  max-md:h-[350px] w-full brightness-75  hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
+                className="object-cover rounded-xl h-[600px] max-md:h-[350px] w-full brightness-75  hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
               />
             </div>
           </section>
@@ -24,12 +24,12 @@ export default function ImageGallery() {
             <img
               src="https://minimalist-e-commerce.vercel.app/static/media/home-img-3.60734311499ba1dbbc41.jpg"
               alt="Two each of gray, white, and black shirts laying flat"
-              className="object-cover rounded-xl h-full w-full max-lg:w-full brightness-75 hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
+              className="object-cover rounded-xl h-full w-full max-lg:w-full max-md:h-[350px]  brightness-75 hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
             />
             <img
               src="https://minimalist-e-commerce.vercel.app/static/media/home-img-4.672d1d0d7656e2a778f6.jpg"
               alt="Two each of gray, white, and black shirts laying flat"
-              className="object-cover rounded-xl h-full  brightness-75 w-full hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
+              className="object-cover rounded-xl h-full  brightness-75 w-full max-md:h-[350px]  hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
             />
           </div>
         </section>

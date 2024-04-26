@@ -1,11 +1,12 @@
 import React, { useState, useMemo, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../components/Product/data";
+import Header from "../../components/Header/Header";
 // import Rating from "../../Ratings/Rating";
 import Products from "../../components/Product/Products";
-import CartContext from "../../CartContext";
+import CartContext from "../../context/CartContext";
 import { Button, message } from "antd";
-import ProductDescription from "@/ProductDescription";
+import ProductDescription from "./ProductDescription";
 function Product_Page() {
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
@@ -39,43 +40,42 @@ function Product_Page() {
   const [totalAmount, setTotalAmount] = useState(0);
 
   if (!product) {
-    return <Products />;
+    return (
+      <>
+        <Header />
+        <Products />
+      </>
+    );
   }
 
-  // Handle addToCart with calculated totalAmount
   const handleAddToCart = () => {
     const price = parseFloat(product.price.replace("$", ""));
     const itemTotal = quantity * price;
     const itemToAdd = {
-      id: product.id, // Include the product ID if available
+      id: product.id,
       name: product.name,
       price: itemTotal,
       src: product.imageSrc,
       alt: product.imageAlt,
-      // Include other details if needed (e.g., ID, description, etc.)
     };
 
-    // Get the current cart items from localStorage
     const currentCartItems =
       JSON.parse(window.localStorage.getItem("cart")) || [];
 
-    // Add the new item to the existing items
     const updatedCartItems = [...currentCartItems, itemToAdd];
 
-    // Update the cart in localStorage
     window.localStorage.setItem("cart", JSON.stringify(updatedCartItems));
 
-    // Update the context state (addToCart function) to reflect the change
     addToCart(itemToAdd);
   };
 
   return (
-    <div className=" text-gray-900  ">
+    <div className="text-white   ">
       {contextHolder}
-      <h2 className="text-center text-5xl mb-10  text-gray-900 max-sm:text-4xl">
+      <h2 className="text-center text-5xl mb-10   max-sm:text-4xl">
         {product.name}
       </h2>
-      <div className="hero min-h-auto lg:px-10  border ">
+      <div className="hero min-h-auto lg:px-10   ">
         <div className="hero-content flex-col lg:flex-row p-0 max-sm:max-w-xs">
           <img
             src={product.imageSrc}
