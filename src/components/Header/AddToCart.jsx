@@ -5,7 +5,7 @@ import { RiDeleteBin2Fill } from "react-icons/ri";
 import { MdEditSquare } from "react-icons/md";
 import CartContext from "../../context/CartContext";
 function AddToCart() {
-  const { cartItems, setCartItems, deleteItem } = useContext(CartContext);
+  const { cartItems, deleteItem } = useContext(CartContext);
   const [open, setOpen] = useState(false);
   const bsCartFillRef = useRef(null);
 
