@@ -39,7 +39,7 @@ function AddToCart() {
             style={{
               fontSize: "20px",
               fontWeight: "bold",
-              fontFamily: "monospace",
+              fontFamily: "Rubik",
             }}
           >
             Your Shopping Cart ({cartItems.length})
@@ -51,7 +51,7 @@ function AddToCart() {
         width={600}
       >
         {cartItems.length > 0 ? (
-          <section className="grid grid-cols-4 gap-5 mb-10 font-bold font-sans text-xl text-slate-500 text-center">
+          <section className="grid grid-cols-4 gap-5 mb-10 font-bold  text-xl text-slate-500 text-center">
             <div className="border-2">Product</div>
             <div className="border-2">Name</div>
             <div className="border-2">Price</div>
@@ -64,11 +64,11 @@ function AddToCart() {
               className="h-[150px]"
               alt=""
             />
-            <h1 className="font-bold font-sans text-xl">
+            <h1 className="font-bold  text-xl">
               Explore our products and add to your cart!
             </h1>
             <a href="/product-page">
-              <button className="w-[150px] h-[50px] bg-base-200  rounded-sm uppercase tracking-wider font-bold font-sans text-lg hover:bg-blue-500 hover:text-white">
+              <button className="w-[150px] h-[50px] bg-base-200  rounded-sm uppercase tracking-wider font-bold  text-lg hover:bg-blue-500 hover:text-white">
                 Shop Now
               </button>{" "}
             </a>
@@ -84,12 +84,10 @@ function AddToCart() {
               <img src={item.src} alt="" className="w-[200px] h-[150px]" />
             </div>
             <div>
-              <p className="text-lg font-sans font-bold">{item.name}</p>
+              <p className="text-lg  font-bold">{item.name}</p>
             </div>
             <div>
-              <p className="font-[900] text-xl font-sans text-red-500">
-                ${item.price}
-              </p>
+              <p className="font-[900] text-xl  text-red-500">${item.price}</p>
             </div>
 
             <div className="text-3xl flex justify-center gap-5 items-center">
@@ -116,7 +114,7 @@ function AddToCart() {
                   </p>
                 </div>
                 <div>
-                  <button className=" w-[200px] h-[50px] border-[1px] border-black font-bold font-sans text-xl hover:bg-red-500 cursor-pointer hover:text-white hover:scale-y-110">
+                  <button className=" w-[200px] h-[50px] border-[1px] border-black font-bold  text-xl hover:bg-red-500 cursor-pointer hover:text-white hover:scale-y-110">
                     Go to Checkout
                   </button>
                 </div>
