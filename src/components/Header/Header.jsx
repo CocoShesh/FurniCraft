@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Drawer } from "antd";
 import AddToCart from "./AddToCart";
 function Header() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
   const showDrawer = () => {
     setOpen(true);
   };
@@ -27,13 +28,17 @@ function Header() {
             <section className="flex items-center justify-center gap-5  ">
               <Link
                 to="/categories"
-                className=" font-bold uppercase text-[18px] max-lg:hidden  transition-colors duration-300 ease-out hover:text-yellow-300 "
+                className={` font-bold uppercase text-[18px] max-lg:hidden  transition-colors duration-300 ease-out hover:text-yellow-300  ${
+                  location.pathname === "/categories" && "text-yellow-300"
+                } `}
               >
                 Categories
               </Link>
               <Link
                 to="/product-page"
-                className=" font-bold uppercase text-[18px] max-lg:hidden  transition-colors duration-300 ease-out hover:text-yellow-300 "
+                className={` font-bold uppercase text-[18px] max-lg:hidden  transition-colors duration-300 ease-out hover:text-yellow-300  ${
+                  location.pathname === "/product-page" && "text-yellow-300"
+                } `}
               >
                 Product Page
               </Link>
