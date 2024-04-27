@@ -5,6 +5,7 @@
 
 body {
   font-family: "Rubik", sans-serif;
+  background: #111827;
 }
 .ant-drawer-body {
   margin-top: 2rem !important;
