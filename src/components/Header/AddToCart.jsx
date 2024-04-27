@@ -52,10 +52,11 @@ function AddToCart() {
         width={600}
       >
         {cartItems.length > 0 ? (
-          <section className="grid grid-cols-4 gap-5 mb-10 font-bold  text-white text-xl text-slate-500 text-center">
+          <section className="grid grid-cols-5 gap-5 mb-10 font-bold  text-white text-xl text-center">
             <div className="">Product</div>
             <div className="">Name</div>
             <div className="">Price</div>
+            <div className="">Quantity</div>
             <div className="">Action</div>
           </section>
         ) : (
@@ -79,10 +80,10 @@ function AddToCart() {
         {cartItems.map(item => (
           <div
             key={item.id}
-            className="grid grid-cols-4 text-center gap-5 items-center mb-10"
+            className="grid grid-cols-5 text-center gap-5 items-center mb-10"
           >
             <div>
-              <img src={item.src} alt="" className="w-[200px] h-[150px]" />
+              <img src={item.src} alt="" className="w-[250px] h-[150px]" />
             </div>
             <div>
               <p className="text-lg  font-bold">{item.name}</p>
@@ -90,8 +91,13 @@ function AddToCart() {
             <div>
               <p className="font-[900] text-xl  text-red-500">${item.price}</p>
             </div>
+            <div>
+              <p className="font-[900] text-xl  text-red-500">
+                {item.quantity}
+              </p>
+            </div>
 
-            <div className="text-3xl flex justify-center gap-5 items-center">
+            <div className="text-3xl flex flex-col justify-center gap-5 items-center">
               <Tooltip title="Edit">
                 <MdEditSquare />
               </Tooltip>
@@ -103,7 +109,6 @@ function AddToCart() {
               </Tooltip>
             </div>
             <div className="flex  flex-col">
-              <div className=" border-dashed border-black border-b-2 w-screen "></div>{" "}
               <div className=" flex   mt-5 items-center justify-between ">
                 <div className="text-left ">
                   <h1 className="text-4xl font-bold font-mono mt-2">
