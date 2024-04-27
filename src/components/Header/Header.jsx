@@ -27,13 +27,13 @@ function Header() {
             <section className="flex items-center justify-center gap-5  ">
               <Link
                 to="/categories"
-                className=" font-bold uppercase text-[18px] max-lg:hidden  "
+                className=" font-bold uppercase text-[18px] max-lg:hidden  transition-colors duration-300 ease-out hover:text-yellow-300 "
               >
                 Categories
               </Link>
               <Link
                 to="/product-page"
-                className=" font-bold uppercase text-[18px] max-lg:hidden "
+                className=" font-bold uppercase text-[18px] max-lg:hidden  transition-colors duration-300 ease-out hover:text-yellow-300 "
               >
                 Product Page
               </Link>
