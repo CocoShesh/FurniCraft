@@ -67,14 +67,28 @@ function Header() {
 
       <Drawer placement="left" onClose={onClose} open={open}>
         <section className=" inline-grid gap-5 w-full items-center justify-center  mt-auto">
-          <Link to="/categories" className=" font-bold uppercase text-[25px]">
+          <Link
+            to="/categories"
+            className={` font-bold uppercase text-[25px] ${
+              location.pathname === "/categories" && "text-yellow-300"
+            }`}
+          >
             Categories
           </Link>
-          <Link to="/product-page" className=" font-bold uppercase text-[25px]">
+          <Link
+            to="/product-page"
+            className={` font-bold uppercase text-[25px] ${
+              location.pathname === "/product-page" && "text-yellow-300"
+            }`}
+          >
             Product Page
           </Link>
           <Link to="/login">
-            <h3 className="font-sans text-[25px] font-bold cursor-pointer">
+            <h3
+              className={` font-bold uppercase text-[25px] ${
+                location.pathname === "/login" && "text-yellow-300"
+              }`}
+            >
               Login
             </h3>
           </Link>
