@@ -3,6 +3,7 @@ import { products } from "./Data.js";
 import { Segmented } from "antd";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
+import Footer from "../../components/Footer/Footer";
 
 const Categories = () => {
   const [filter, setFilter] = useState("All");
@@ -21,9 +22,9 @@ const Categories = () => {
         <Header />
         <div className="mx-14 pb-20   pt-10 2xl:w-[1500px] text-white max-md:w-full max-lg:w-full max-lg:mx-auto  max-lg:px-5">
           <div className="flex w-full max-md:w-auto ">
-            <p className="text-xl font-bold cursor-pointer">
+            <p className="text-xl font-bold cursor-pointer text-[#b2b2b2b6] hover:text-[#f7cd7c] transition-colors duration-200 ease-in-out">
               <a href="/">
-                <span className=" mr-1 cursor-pointer">&lt; </span> Home{" "}
+                <span className=" mr-1 cursor-pointer ">&lt; </span> Home{" "}
               </a>
             </p>
           </div>
@@ -61,6 +62,7 @@ const Categories = () => {
         </div>
       </section>
       <Banner />
+      <Footer />
     </>
   );
 };
