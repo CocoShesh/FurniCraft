@@ -10,12 +10,14 @@ body {
 .ant-drawer-body {
   margin-top: 2rem !important;
 }
-
+.ant-drawer-content-wrapper {
+  width: 800px !important;
+}
 .ant-drawer-content {
   background-color: #090d15 !important;
 }
 .ant-drawer-mask {
-  background-color: #d4d4d436 !important;
+  background-color: #090d1593 !important;
 }
 .ant-drawer-close {
   position: absolute;
