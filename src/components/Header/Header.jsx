@@ -15,7 +15,7 @@ function Header() {
 
   return (
     <>
-      <header className=" w-full h-14 px-10 py-10 flex max-lg:px-5 justify-center items-center   text-white ">
+      <header className=" w-full h-14 px-10 max-sm:pl-2 py-10 flex max-lg:px-5 justify-center items-center   text-white ">
         <section className="2xl:w-[1500px] flex  gap-5   w-full ">
           <Link to="/">
             <img
