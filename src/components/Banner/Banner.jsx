@@ -2,7 +2,7 @@ import React from "react";
 import banner from "../../assets/banner.jpg";
 function Banner() {
   return (
-    <div className="flex max-sm:px-5 px-12 pt-10 mb-10  h-[500px] max-md:h-fit   max-sm:w-full max-sm:flex-col-reverse items-center justify-center ">
+    <div className="flex max-sm:px-5 px-12 pt-10 pb-10  h-[500px] max-md:h-fit   max-sm:w-full max-sm:flex-col-reverse items-center justify-center ">
       <section className=" 2xl:w-[1500px]  w-full h-full flex  max-md:flex-col-reverse items-center justify-center ">
         <section className="  bg-[#e9e9e9] cursor-pointer  brightness-90 hover:brightness-100 h-full flex flex-col items-center justify-center w-full  max-md:items-start  md:rounded-l-lg  max-md:rounded-b-lg  max-md:py-10 max-lg:px-5">
           <h1 className=" font-semibold text-3xl mb-5 text-gray-800">
