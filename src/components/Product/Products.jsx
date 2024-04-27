@@ -3,6 +3,13 @@ import data from "./data";
 import { Link } from "react-router-dom";
 function Products() {
   const limitedData = data.slice(0, 8);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="w-full flex items-center justify-center  ">
       <div className="mx-5  px-4  sm:px-6 py-10  xs:px-0  lg:px-8">
@@ -23,7 +30,10 @@ function Products() {
               <div className="mt-4 flex justify-between max-sm:flex-col">
                 <div>
                   <h3 className=" text-white  w-[150px] text-[18px] font-semibold">
-                    <Link to={`/product-page/${product.name}`}>
+                    <Link
+                      to={`/product-page/${product.name}`}
+                      onClick={scrollToTop}
+                    >
                       <span aria-hidden="true" className="absolute inset-0" />
                       {product.name}
                     </Link>
