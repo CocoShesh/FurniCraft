@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { category, products } from "./Data.js";
+import { products } from "./Data.js";
 import { Segmented } from "antd";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
