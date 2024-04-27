@@ -22,7 +22,7 @@ function Banner() {
           <img
             src={banner}
             alt={banner}
-            className="  2xl:h-[460px] max-md:h-[300px]  brightness-90 hover:brightness-100  cursor-pointer h-full w-full object-cover  max-md:rounded-t-lg  md:rounded-r-lg   "
+            className="  2xl:h-[420px] max-md:h-[300px]  brightness-90 hover:brightness-100  cursor-pointer h-full w-full object-cover  max-md:rounded-t-lg  md:rounded-r-lg   "
           />
         </section>
       </section>
