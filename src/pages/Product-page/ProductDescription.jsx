@@ -2,6 +2,8 @@ import React, { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../components/Product/data";
 import Products from "../../components/Product/Products";
+import Banner from "../../components/Banner/Banner";
+import Footer from "../../components/Footer/Footer";
 function ProductDescription() {
   const { productName } = useParams();
   const product = useMemo(
@@ -10,19 +12,19 @@ function ProductDescription() {
   );
 
   return (
-    <div>
-      <section className="flex justify-between xl:mx-14 mt-20 max-lg:gap-5 max-lg:mx-5 max-sm:flex-col max-sm:gap-5 max-sm:items-center  text-white  ">
-        <section className="max-lg:w-[300px] xl:w-[350px] h-[100px] bg-base-200 p-5 rounded-md max-sm:max-w-xs  ">
-          <h1 className="text-2xl font-bold font-sans "> Texture:</h1>
-          <p className="font-sans text-lg"> {product.Texture}</p>
+    <div className=" flex items-center justify-center flex-col w-full h-full">
+      <section className=" flex items-center justify-center w-full gap-5   2xl:w-[1500px] h-fit py-10 px-12  2xl:px-0 max-sm:flex-col max-sm:px-5">
+        <section className="bg-[#b2b2b2] text-black brightness-90 p-5 w-full rounded-md">
+          <h1 className="text-2xl font-bold  "> Texture:</h1>
+          <p className=" text-lg"> {product.Texture}</p>
         </section>
-        <section className="max-lg:w-[300px] xl:w-[350px]  h-[100px] bg-base-200  p-5 rounded-md max-sm:max-w-xs ">
-          <h1 className="text-2xl font-bold font-sans">Weight:</h1>
-          <p className="font-sans text-lg"> {product.Weight} </p>
+        <section className="bg-[#b2b2b2] text-black brightness-90 p-5 w-full rounded-md">
+          <h1 className="text-2xl font-bold ">Weight:</h1>
+          <p className=" text-lg"> {product.Weight} </p>
         </section>
-        <section className="max-lg:w-[300px] xl:w-[350px] h-[100px] bg-base-200  p-5 rounded-md max-sm:max-w-xs ">
-          <h1 className="text-2xl font-bold font-sans"> Size:</h1>
-          <p className="font-sans text-lg">{product.Size} </p>
+        <section className="bg-[#b2b2b2] text-black brightness-90 p-5 w-full rounded-md">
+          <h1 className="text-2xl font-bold "> Size:</h1>
+          <p className=" text-lg">{product.Size} </p>
         </section>
       </section>
       <Products />
