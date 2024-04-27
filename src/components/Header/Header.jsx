@@ -27,7 +27,7 @@ function Header() {
             <section className="flex items-center justify-center gap-5  ">
               <Link
                 to="/categories"
-                className=" font-bold uppercase text-[18px] max-lg:hidden "
+                className=" font-bold uppercase text-[18px] max-lg:hidden  "
               >
                 Categories
               </Link>
@@ -40,8 +40,13 @@ function Header() {
             </section>
             <section className="flex gap-5 items-center ">
               <Link to="/login">
-                <h3 className="font-sans text-[18px] font-bold cursor-pointer uppercase max-lg:hidden">
+                <h3 className="font-sans text-[18px] font-bold cursor-pointer uppercase max-lg:hidden transition-colors duration-300 ease-out hover:text-yellow-300">
                   Login
+                </h3>
+              </Link>
+              <Link to="/signup">
+                <h3 className="font-sans text-[18px] font-bold cursor-pointer uppercase max-lg:hidden transition-colors duration-300  ease-out hover:text-yellow-300">
+                  Sign Up
                 </h3>
               </Link>
 
