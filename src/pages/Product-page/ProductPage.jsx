@@ -59,6 +59,7 @@ function Product_Page() {
       id: product.id,
       name: product.name,
       price: itemTotal,
+      quantity: quantity,
       src: product.imageSrc,
       alt: product.imageAlt,
     };
