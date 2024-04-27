@@ -19,7 +19,7 @@ const Categories = () => {
     <>
       <section className="bg-[#111827] flex items-center justify-center flex-col w-full">
         <Header />
-        <div className="mx-14 pb-20 max-md:m-auto  pt-10 2xl:w-[1500px] text-white max-md:w-full max-lg:w-full max-lg:mx-auto  max-lg:px-5">
+        <div className="mx-14 pb-20   pt-10 2xl:w-[1500px] text-white max-md:w-full max-lg:w-full max-lg:mx-auto  max-lg:px-5">
           <div className="flex w-full max-md:w-auto ">
             <p className="text-xl font-bold cursor-pointer">
               <a href="/">
