@@ -7,6 +7,8 @@ import Products from "../../components/Product/Products";
 import CartContext from "../../context/CartContext";
 import { Button, message } from "antd";
 import ProductDescription from "./ProductDescription";
+import Banner from "../../components/Banner/Banner";
+import Footer from "../../components/Footer/Footer";
 function Product_Page() {
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
@@ -44,6 +46,8 @@ function Product_Page() {
       <>
         <Header />
         <Products />
+        <Banner />
+        <Footer />
       </>
     );
   }
@@ -70,25 +74,25 @@ function Product_Page() {
   };
 
   return (
-    <div className="text-white   ">
-      {contextHolder}
-      <h2 className="text-center text-5xl mb-10   max-sm:text-4xl">
-        {product.name}
-      </h2>
-      <div className="hero min-h-auto lg:px-10   ">
-        <div className="hero-content flex-col lg:flex-row p-0 max-sm:max-w-xs">
+    <>
+      <Header />
+      <section className=" pt-14 flex flex-col items-center justify-center">
+        {contextHolder}
+        <h2 className="text-center text-5xl mb-10 max-sm:text-4xl font-bold text-[#b9b8b8]">
+          {product.name}
+        </h2>
+        <section className="flex items-center justify-center h-fit w-full  py-10  2xl:w-[1500px] px-12 max-md:flex-col gap-20 2xl:px-0">
           <img
             src={product.imageSrc}
             alt={product.imageAlt}
-            className="max-w-xs rounded-lg "
+            className="max-w-xs rounded-lg brightness-90 hover:brightness-100 bg-white "
           />
-          <div className="max-sm:max-w-xs  max-lg:max-w-2xl max-sm:px-4">
-            <h1 className="text-5xl font-bold">Description</h1>
-            <p className="py-6 text-justify">{product.Description}</p>
-
-            <section className="flex max-sm:flex-col items-center gap-10 mt-10">
+          <section>
+            <h1 className="text-2xl font-bold">Description</h1>
+            <p className="py-2 text-justify">{product.Description}</p>
+            <section className="flex items-center gap-10 mt-10">
               <p className="font-bold text-2xl"> Quantity</p>
-              <section className="flex">
+              <section className="flex text-black">
                 <div
                   className="w-[50px] h-[50px] border-[1px] text-4xl text-center cursor-pointer bg-white border-black "
                   onClick={() => {
@@ -121,17 +125,15 @@ function Product_Page() {
               >
                 Add To Cart
               </button>
-              <button className="w-[200px] h-[50px] border-[1px] border-black font-bold text-2xl text-white bg-[#b6002c] hover:bg-transparent hover:scale-110 hover:text-red-700">
+              <button className="w-[200px] h-[50px] border-[1px] border-black font-bold text-2xl text-black bg-[#f7cd7c] hover:bg-transparent hover:scale-110 hover:text-red-700">
                 Buy Now
               </button>
             </section>
-          </div>
-        </div>
-      </div>
-      <section>
+          </section>
+        </section>
         <ProductDescription />
       </section>
-    </div>
+    </>
   );
 }
 
