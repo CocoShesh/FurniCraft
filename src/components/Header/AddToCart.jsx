@@ -52,11 +52,11 @@ function AddToCart() {
         width={600}
       >
         {cartItems.length > 0 ? (
-          <section className="grid grid-cols-4 gap-5 mb-10 font-bold  text-xl text-slate-500 text-center">
-            <div className="border-2">Product</div>
-            <div className="border-2">Name</div>
-            <div className="border-2">Price</div>
-            <div className="border-2">Action</div>
+          <section className="grid grid-cols-4 gap-5 mb-10 font-bold  text-white text-xl text-slate-500 text-center">
+            <div className="">Product</div>
+            <div className="">Name</div>
+            <div className="">Price</div>
+            <div className="">Action</div>
           </section>
         ) : (
           <div className="flex flex-col items-center justify-center h-full gap-y-5">
