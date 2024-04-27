@@ -37,13 +37,14 @@ function AddToCart() {
         title={
           <div
             style={{
-              fontSize: "20px",
+              fontSize: "28px",
               fontWeight: "bold",
               fontFamily: "Rubik",
-              color: "white",
+              color: "#f7cd7c",
             }}
           >
-            Your Shopping Cart ({cartItems.length})
+            Your Shopping Cart{"  "}
+            <span className="text-red-500"> ({cartItems.length}) </span>
           </div>
         }
         placement="right"
@@ -83,7 +84,11 @@ function AddToCart() {
             className="grid grid-cols-5 text-center gap-5 items-center mb-10"
           >
             <div>
-              <img src={item.src} alt="" className="w-[250px] h-[150px]" />
+              <img
+                src={item.src}
+                alt=""
+                className="object-contain rounded-lg"
+              />
             </div>
             <div>
               <p className="text-lg  font-bold">{item.name}</p>
