@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Bahay from "./components/Bahay";
-import Login from "./components/Login-user/ImageCarousel";
+import Login from "./components/Login-user/Login";
 import SignUp from "./components/Login-user/SIgnUp";
 import Product_Page from "./pages/Product-page/ProductPage";
 import Categories from "./pages/Categories/Categ";
@@ -26,7 +26,7 @@ function App() {
             <Route path="/product-page/" element={<Product_Page />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/register" element={<SignUp />} />
           </Routes>
         </ProductProviderContext>
       </CartProvider>
