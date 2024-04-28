@@ -1,4 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
+
 import { Button, Drawer, Tooltip, Badge } from "antd";
 import { BsCartFill } from "react-icons/bs";
 import { RiDeleteBin2Fill } from "react-icons/ri";
@@ -22,7 +23,7 @@ function AddToCart() {
 
   return (
     <div>
-      <section className="flex relative">
+      <section className="flex relative ">
         <Badge count={cartItems.length}>
           <Tooltip title="Open Cart" color="#D81414">
             <BsCartFill
@@ -35,14 +36,7 @@ function AddToCart() {
       </section>
       <Drawer
         title={
-          <div
-            style={{
-              fontSize: "28px",
-              fontWeight: "bold",
-              fontFamily: "Rubik",
-              color: "#f7cd7c",
-            }}
-          >
+          <div className="font-bold text-[#f7cd7c] text-3xl ">
             Your Shopping Cart{"  "}
             <span className="text-red-500"> ({cartItems.length}) </span>
           </div>
@@ -53,7 +47,7 @@ function AddToCart() {
         width={600}
       >
         {cartItems.length > 0 ? (
-          <section className="grid grid-cols-5 gap-5 mb-10 font-bold  text-white text-xl text-center">
+          <section className="grid grid-cols-5 gap-5 mb-10 font-bold  select-none text-white text-xl text-center">
             <div className="">Product</div>
             <div className="">Name</div>
             <div className="">Price</div>
@@ -61,7 +55,7 @@ function AddToCart() {
             <div className="">Action</div>
           </section>
         ) : (
-          <div className="flex flex-col items-center justify-center h-full gap-y-5">
+          <div className="flex flex-col items-center justify-center h-full  select-none gap-y-5">
             <img
               src="https://minimalist-e-commerce.vercel.app/static/media/empty-cart.17f48bd13327a233e04a.png"
               className="h-[150px]"
@@ -73,66 +67,65 @@ function AddToCart() {
             <a href="/product-page">
               <button className="w-[150px] h-[50px] bg-base-200  rounded-sm uppercase tracking-wider font-bold  text-lg hover:bg-blue-500 hover:text-white">
                 Shop Now
-              </button>{" "}
+              </button>
             </a>
           </div>
         )}
 
-        {cartItems.map(item => (
-          <div
-            key={item.id}
-            className="grid grid-cols-5 text-center gap-5 items-center mb-10"
-          >
-            <div>
-              <img
-                src={item.src}
-                alt=""
-                className="object-contain rounded-lg"
-              />
-            </div>
-            <div>
-              <p className="text-lg  font-bold">{item.name}</p>
-            </div>
-            <div>
-              <p className="font-[900] text-xl  text-red-500">${item.price}</p>
-            </div>
-            <div>
-              <p className="font-[900] text-xl  text-red-500">
-                {item.quantity}
-              </p>
-            </div>
-
-            <div className="text-3xl flex flex-col justify-center gap-5 items-center">
-              <Tooltip title="Edit">
-                <MdEditSquare />
-              </Tooltip>
-              <Tooltip title="Delete">
-                <RiDeleteBin2Fill
-                  onClick={() => handleDeleteItem(item.id)}
-                  className="cursor-pointer"
-                />
-              </Tooltip>
-            </div>
-            <div className="flex  flex-col">
-              <div className=" flex   mt-5 items-center justify-between ">
-                <div className="text-left ">
-                  <h1 className="text-4xl font-bold font-mono mt-2">
-                    {" "}
-                    Subtotal
-                  </h1>
-                  <p className="text-3xl text-red-500 font-bold font-mono">
+        <section className=" flex flex-col border-red-500 border-4  justify-between">
+          {cartItems.map(item => (
+            <section className=" flex flex-col justify-between">
+              <div
+                key={item.id}
+                className="grid grid-cols-5 text-center gap-5 items-center select-none  mb-10"
+              >
+                <div>
+                  <img
+                    src={item.src}
+                    alt=""
+                    className="object-contain rounded-lg"
+                  />
+                </div>
+                <div>
+                  <p className="text-lg  font-bold">{item.name}</p>
+                </div>
+                <div>
+                  <p className="font-[900] text-xl  text-red-500">
                     ${item.price}
                   </p>
                 </div>
                 <div>
-                  <button className=" w-[200px] h-[50px] border-[1px] border-black font-bold  text-xl hover:bg-red-500 cursor-pointer hover:text-white hover:scale-y-110">
-                    Go to Checkout
-                  </button>
+                  <p className="font-[900] text-xl  text-red-500">
+                    {item.quantity}
+                  </p>
+                </div>
+
+                <div className="text-3xl flex flex-col justify-center gap-5 items-center">
+                  <Tooltip title="Edit">
+                    <MdEditSquare />
+                  </Tooltip>
+                  <Tooltip title="Delete">
+                    <RiDeleteBin2Fill
+                      onClick={() => handleDeleteItem(item.id)}
+                      className="cursor-pointer"
+                    />
+                  </Tooltip>
                 </div>
               </div>
+            </section>
+          ))}
+          <div className=" flex   mt-5 items-center justify-between w-full">
+            <div className="text-left ">
+              <h1 className="text-4xl font-bold  mt-2"> Subtotal</h1>
+              {/* <p className="text-3xl text-red-500 font-bold ">${item?.price}</p> */}
+            </div>
+            <div>
+              <button className=" w-[200px] h-[50px] border-[1px] border-black font-bold  text-xl hover:bg-red-500 cursor-pointer hover:text-white hover:scale-y-110">
+                Go to Checkout
+              </button>
             </div>
           </div>
-        ))}
+        </section>
       </Drawer>
     </div>
   );
