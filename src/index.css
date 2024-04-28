@@ -7,32 +7,7 @@ body {
   font-family: "Rubik", sans-serif;
   background: #111827;
 }
-.ant-drawer-body {
-  margin-top: 2rem !important;
-}
-.ant-drawer-content-wrapper {
-  width: 700px !important;
-}
-.ant-drawer-content {
-  background-color: #090d15 !important;
-}
-.ant-drawer-mask {
-  background-color: #090d1593 !important;
-}
-.ant-drawer-close {
-  position: absolute;
-  right: 5px;
-  font-size: 20px !important;
-  top: 15px;
-  color: white !important;
-}
-.ant-drawer-header {
-  border-bottom: none !important;
-  position: relative;
-}
-.ant-drawer-body {
-  margin-top: 8rem;
-}
+
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
