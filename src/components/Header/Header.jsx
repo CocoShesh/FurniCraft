@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Drawer } from "antd";
-import AddToCart from "./AddToCart";
+import { Button, Drawer, Tooltip, Badge } from "antd";
+import { BsCartFill } from "react-icons/bs";
+import AddToCartDrawer from "./Drawer/AddToCartDrawer";
 function Header() {
+  const [isOpenCartDrawer, isSetOpenCartDrawer] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const showDrawer = () => {
@@ -12,7 +14,9 @@ function Header() {
   const onClose = () => {
     setOpen(false);
   };
-
+  const handleAddToCart = () => {
+    isSetOpenCartDrawer(prev => !prev);
+  };
   return (
     <>
       <header className=" w-full h-14 px-10 max-sm:pl-2 py-10 flex max-lg:px-5 justify-center items-center   text-white ">
@@ -49,13 +53,23 @@ function Header() {
                   Login
                 </h3>
               </Link>
-              <Link to="/signup">
+              <Link to="/register">
                 <h3 className="font-sans text-[18px] font-bold cursor-pointer uppercase max-lg:hidden transition-colors duration-300  ease-out hover:text-yellow-300">
                   Sign Up
                 </h3>
               </Link>
 
-              <AddToCart />
+              <section className="flex relative ">
+                {/* <Badge count={cartItems.length}> */}
+                <Tooltip title="Open Cart" color="#D81414">
+                  <BsCartFill
+                    // ref={bsCartFillRef}
+                    className="text-[22px] hover:scale-125 cursor-pointer text-white"
+                    onClick={handleAddToCart}
+                  />
+                </Tooltip>
+                {/* </Badge> */}
+              </section>
               <GiHamburgerMenu
                 className="text-2xl mt-1 max-lg:visible lg:hidden cursor-pointer"
                 onClick={showDrawer}
@@ -89,11 +103,22 @@ function Header() {
                 location.pathname === "/login" && "text-yellow-300"
               }`}
             >
+              Register
+            </h3>
+          </Link>
+          <Link to="/register">
+            <h3
+              className={` font-bold uppercase text-[25px] ${
+                location.pathname === "/register" && "text-yellow-300"
+              }`}
+            >
               Login
             </h3>
           </Link>
         </section>
       </Drawer>
+
+      {isOpenCartDrawer && <AddToCartDrawer handleOpen={handleAddToCart} />}
     </>
   );
 }
