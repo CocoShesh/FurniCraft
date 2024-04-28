@@ -20,6 +20,7 @@ export default function ImageGallery() {
                 <img
                   src="https://minimalist-e-commerce.vercel.app/static/media/home-img-2.4daa711cfda65062efd0.jpg"
                   alt="Two each of gray, white, and black shirts laying flat"
+                  loading="lazy"
                   className="object-cover rounded-xl h-[600px] max-md:h-[350px] w-full brightness-75  hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
                 />
               </Link>
@@ -30,6 +31,7 @@ export default function ImageGallery() {
               <img
                 src="https://minimalist-e-commerce.vercel.app/static/media/home-img-3.60734311499ba1dbbc41.jpg"
                 alt="Two each of gray, white, and black shirts laying flat"
+                loading="lazy"
                 className="object-cover rounded-xl h-full w-full max-lg:w-full max-md:h-[350px]  brightness-75 hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
               />
             </Link>
