@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Bahay from "./components/Bahay";
-import Login from "./components/Login-user/Login";
-import SignUp from "./components/Login-user/SIgnUp";
+import Home from "./components/Home";
+import Login from "./components/Authentication/Login";
+import SignUp from "./components/Authentication/SIgnUp";
 import Product_Page from "./pages/Product-page/ProductPage";
 import Categories from "./pages/Categories/Categ";
 import { ProductProviderContext } from "./context/ProductProviderContext";
@@ -15,7 +15,7 @@ function App() {
       <CartProvider>
         <ProductProviderContext>
           <Routes>
-            <Route path="/" element={<Bahay />} />
+            <Route path="/" element={<Home />} />
             <Route exact path="/product-page" element={<Product_Page />} />
             <Route
               path="/product-page/:productName"
@@ -27,6 +27,7 @@ function App() {
           </Routes>
         </ProductProviderContext>
       </CartProvider>
+
       <FloatButton.BackTop />
     </Router>
   );
