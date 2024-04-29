@@ -1,6 +1,8 @@
 import React from "react";
 import data from "./data";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 function Products() {
   const limitedData = data.slice(0, 8);
   const scrollToTop = () => {
@@ -20,14 +22,15 @@ function Products() {
         <div className="mt-6 grid 2xl:w-[1500px] lg:grid-cols-4  gap-x-6 gap-y-10  xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3  2xl:grid-cols-4   xl:gap-x-8">
           {limitedData.map(product => (
             <div key={product.id} className="group relative">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md border-2 lg:aspect-none group-hover:brightness-100  brightness-75  lg:h-80 2xl:h-auto">
-                <img
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:brightness-100  brightness-75  lg:h-80 2xl:h-auto">
+                <LazyLoadImage
+                  effect="blur"
                   src={product.imageSrc}
                   alt={product.imageAlt}
-                  className=" object-cover object-center bg-white lg:h-full lg:w-auto 2xl:w-full 2xl:h-fit "
+                  className=" object-cover object-center bg-white lg:h-full h lg:w-auto 2xl:w-full 2xl:h-fit "
                 />
               </div>
-              <div className="mt-4 flex justify-between max-sm:flex-col">
+              <div className="-mt-4 flex justify-between max-sm:flex-col">
                 <div>
                   <h3 className=" text-white  w-[150px] text-[18px] font-semibold">
                     <Link
