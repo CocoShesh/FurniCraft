@@ -27,6 +27,10 @@ export default function ImageGallery() {
             <div className=" grid  lg:h-[600px] relative  ">
               <Link to="/categories">
                 <LazyLoadImage
+                  effect="blur"
+                  wrapperProps={{
+                    style: { transitionDelay: "1s" },
+                  }}
                   src="https://minimalist-e-commerce.vercel.app/static/media/home-img-2.4daa711cfda65062efd0.jpg"
                   alt="Two each of gray, white, and black shirts laying flat"
                   className="object-cover rounded-xl h-[600px] max-md:h-[350px] w-full  brightness-75  hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
@@ -41,6 +45,10 @@ export default function ImageGallery() {
             <div className="relative">
               <Link to="/categories">
                 <LazyLoadImage
+                  effect="blur"
+                  wrapperProps={{
+                    style: { transitionDelay: "1s" },
+                  }}
                   src="https://minimalist-e-commerce.vercel.app/static/media/home-img-3.60734311499ba1dbbc41.jpg"
                   alt="Two each of gray, white, and black shirts laying flat"
                   loading="lazy"
@@ -54,6 +62,10 @@ export default function ImageGallery() {
             <div className="relative">
               <Link to="/categories">
                 <LazyLoadImage
+                  effect="blur"
+                  wrapperProps={{
+                    style: { transitionDelay: "1s" },
+                  }}
                   src="https://minimalist-e-commerce.vercel.app/static/media/home-img-4.672d1d0d7656e2a778f6.jpg"
                   alt="Two each of gray, white, and black shirts laying flat"
                   className="object-cover rounded-xl h-full   brightness-75 w-full max-md:h-[350px]  hover:brightness-100 transition duration-500 ease-in-out cursor-pointer"
