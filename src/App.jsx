@@ -16,14 +16,11 @@ function App() {
         <ProductProviderContext>
           <Routes>
             <Route path="/" element={<Bahay />} />
-
             <Route exact path="/product-page" element={<Product_Page />} />
             <Route
               path="/product-page/:productName"
               element={<Product_Page />}
             />
-
-            <Route path="/product-page/" element={<Product_Page />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<SignUp />} />
