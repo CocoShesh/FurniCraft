@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import data from "../../components/Product/data";
+import data from "../../components/Product/data.js";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Header from "../../components/Header/Header";
