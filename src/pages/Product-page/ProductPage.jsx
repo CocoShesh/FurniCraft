@@ -6,24 +6,13 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import Header from "../../components/Header/Header";
 import Products from "../../components/Product/Products";
 import CartContext from "../../context/CartContext";
-import { Button, message } from "antd";
 import ProductDescription from "./ProductDescription";
 import Banner from "../../components/Banner/Banner";
 import Footer from "../../components/Footer/Footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Product_Page() {
-  const [messageApi, contextHolder] = message.useMessage();
-  const success = () => {
-    messageApi.open({
-      type: "success",
-      content: "Item successfully added to your shopping cart.",
-      className: "custom-class",
-      style: {
-        fontSize: "15px",
-        fontFamily: "monospace",
-        fontWeight: "bold",
-      },
-    });
-  };
   const { addToCart } = useContext(CartContext);
   const { productName } = useParams();
   const [quantity, setQuantity] = useState(1);
@@ -73,13 +62,22 @@ function Product_Page() {
     window.localStorage.setItem("cart", JSON.stringify(updatedCartItems));
 
     addToCart(itemToAdd);
+    toast("🎉 Product successfully added to your cart", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      className: "black-background",
+    });
   };
 
   return (
     <>
       <Header />
       <section className=" pt-14 flex flex-col items-center justify-center w-full">
-        {contextHolder}
         <h2 className="text-center text-5xl mb-10 max-sm:text-4xl font-bold text-[#b9b8b8]">
           {product.name}
         </h2>
@@ -128,10 +126,7 @@ function Product_Page() {
               </section>
               <p className="font-bold text-2xl">${totalAmount}</p>
             </section>
-            <section
-              className="flex  max-sm:flex-col mt-10 justify-end gap-5"
-              onClick={success}
-            >
+            <section className="flex  max-sm:flex-col mt-10 justify-end gap-5">
               <button
                 className="w-[200px]  max-sm:w-full h-[50px] border-[1px] border-black font-bold text-2xl hover:bg-[#cfcdcd] hover:text-black rounded-md"
                 onClick={handleAddToCart}
@@ -146,6 +141,15 @@ function Product_Page() {
         </section>
         <ProductDescription />
       </section>
+      <ToastContainer
+        position="top-center"
+        closeOnClick
+        hideProgressBar={false}
+        autoClose={5000}
+        draggable
+        pauseOnHover
+        theme="#e9e9e9"
+      />
     </>
   );
 }
