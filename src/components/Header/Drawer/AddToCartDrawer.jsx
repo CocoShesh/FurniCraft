@@ -29,7 +29,7 @@ const AddToCartDrawer = ({ handleOpen }) => {
         >
           <section className="flex flex-col justify-between h-full pb-5 ">
             {cartItems.length === 0 ? (
-              <div className="flex flex-col items-center justify-center h-full relative select-none gap-y-5">
+              <div className="flex flex-col items-center justify-center h-full  w-full  px-5  text-center relative select-none gap-y-5">
                 <IoIosClose
                   className="cursor-pointer absolute  top-5 hover:text-[#fde047] right-5 text-4xl"
                   onClick={handleOpen}
@@ -47,7 +47,7 @@ const AddToCartDrawer = ({ handleOpen }) => {
                   Explore our products and add to your cart!
                 </h1>
                 <a href="/product-page">
-                  <button className="w-[150px] h-[50px] bg-base-200  rounded-sm uppercase tracking-wider font-bold  text-lg hover:bg-blue-500 hover:text-white">
+                  <button className="w-full max-w-xs max-sm:max-w-full h-14 px-8 border border-black font-bold text-xl bg-white text-black hover:bg-red-500 hover:text-white transform hover:scale-105 transition-all duration-300 ease-in-out">
                     Shop Now
                   </button>
                 </a>
@@ -67,46 +67,6 @@ const AddToCartDrawer = ({ handleOpen }) => {
                   </section>
 
                   <section className=" flex flex-col justify-between mt-5">
-                    {/* {cartItems.map(item => (
-                      <div
-                        key={item.id}
-                        className="grid grid-cols-5  max-md:grid-cols-2 text-center gap-5 items-center select-none  mb-10"
-                      >
-                        <div>
-                          <LazyLoadImage
-                            effect="blur"
-                            wrapperProps={{
-                              style: { transitionDelay: "1s" },
-                            }}
-                            src={item.src}
-                            alt=""
-                            className="object-contain rounded-lg bg-white max-md:w-[100px]  max-md:h-[100px]"
-                          />
-                        </div>
-                        <div>
-                          <p className="text-sm  font-bold">{item.name}</p>
-                        </div>
-                        <div>
-                          <p className="font-[900] text-xl  text-red-500 max-sm:text-lg ">
-                            ${item.price}
-                          </p>
-                        </div>
-                        <div>
-                          <p className="font-[900] text-xl  text-red-500 max-sm:text-lg">
-                            {item.quantity}
-                          </p>
-                        </div>
-
-                        <div className="text-3xl flex  justify-center gap-5 items-center">
-                          <Tooltip title="Delete">
-                            <RiDeleteBin2Fill
-                              onClick={() => handleDeleteItem(item.id)}
-                              className="cursor-pointer"
-                            />
-                          </Tooltip>
-                        </div>
-                      </div>
-                    ))} */}
                     {cartItems.map(item => {
                       return (
                         <div
@@ -119,8 +79,8 @@ const AddToCartDrawer = ({ handleOpen }) => {
                             className="h-24 w-24 object-cover bg-white"
                           />
                           <div className="flex flex-col flex-1 p-4">
-                            <div className="flex items-center justify-between">
-                              <h2 className="font-semibold text-lg  max-sm:line-clamp-1">
+                            <div className="flex items-center justify-between gap-3">
+                              <h2 className="font-semibold text-lg   max-sm:line-clamp-1">
                                 {item.name}
                               </h2>
                               <span className="text-[#f7cd7c] font-bold text-lg">
@@ -144,7 +104,7 @@ const AddToCartDrawer = ({ handleOpen }) => {
                     })}
                   </section>
                 </section>
-                <div className="flex max-sm:flex-col gap-5 items-center max-sm:items-startx justify-between px-8 mt-5 pb-2 w-full">
+                <div className="flex max-sm:flex-col gap-5 items-center max-sm:items-start justify-between px-8 mt-5 pb-2 w-full">
                   <div className="text-left">
                     <h1 className="text-3xl font-bold mt-2">Subtotal</h1>
                     <p className="text-3xl text-[#f7cd7c] font-bold">
