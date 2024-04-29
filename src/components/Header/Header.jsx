@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Button, Drawer, Tooltip, Badge } from "antd";
+import { Badge } from "antd";
 import { BsCartFill } from "react-icons/bs";
 import AddToCartDrawer from "./Drawer/AddToCartDrawer";
 import NavigationDrawer from "./Drawer/NavigationDrawer";
@@ -63,12 +63,10 @@ function Header() {
 
               <section className="flex relative ">
                 <Badge count={cartItems.length}>
-                  <Tooltip title="Open Cart" color="#D81414">
-                    <BsCartFill
-                      className="text-[22px] hover:scale-125 cursor-pointer text-white"
-                      onClick={handleAddToCart}
-                    />
-                  </Tooltip>
+                  <BsCartFill
+                    className="text-[22px] hover:scale-125 cursor-pointer text-white"
+                    onClick={handleAddToCart}
+                  />
                 </Badge>
               </section>
               <GiHamburgerMenu
