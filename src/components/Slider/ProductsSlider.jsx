@@ -6,7 +6,8 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import { ProductImage1 } from "./ProductImage";
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 export default function App() {
   const swiperRef = useRef(null);
 
@@ -66,8 +67,12 @@ export default function App() {
                 className="carousel-item max-lg:h-auto max-w-auto max-md:h-auto  brightness-75  hover:brightness-100 transition duration-500 ease-in-out"
               >
                 <Link to={`/product-page/${img1.name}`}>
-                  <img
+                  <LazyLoadImage
                     src={img1.src}
+                    effect="blur"
+                    wrapperProps={{
+                      style: { transitionDelay: "1s" },
+                    }}
                     className="object-contain  h-auto   bg-white rounded-lg"
                     alt=""
                   />
