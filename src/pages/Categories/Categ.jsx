@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { products } from "./Data.js";
 import { Segmented } from "antd";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import Footer from "../../components/Footer/Footer";
@@ -50,9 +52,13 @@ const Categories = () => {
           <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 mt-20 gap-7 2xl:grid-cols-4 w-full max-md:grid-cols-1  max-md:px-3 ">
             {filteredProducts.map((product, index) => (
               <div key={index} className=" max-md:h-full max-md:p-auto  ">
-                <img
+                <LazyLoadImage
                   src={product.src}
                   alt={product.name}
+                  effect="blur"
+                  wrapperProps={{
+                    style: { transitionDelay: "1s" },
+                  }}
                   className=" 2xl:w-full  bg-white brightness-90 hover:brightness-100 rounded-lg max-md:h-[300px] w-full max-md:object-contain max-lg:object-contain"
                 />
                 <p className="mt-5  ">{product.name}</p>
