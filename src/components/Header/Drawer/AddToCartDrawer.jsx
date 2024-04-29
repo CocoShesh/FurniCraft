@@ -1,113 +1,165 @@
 import React, { useContext } from "react";
 import { IoIosClose } from "react-icons/io";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { Tooltip } from "antd";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { MdEditSquare } from "react-icons/md";
 import CartContext from "../../../context/CartContext";
+import useAOS from "../../../hooks/UseAnimations";
 const AddToCartDrawer = ({ handleOpen }) => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, deleteItem } = useContext(CartContext);
 
+  const Total = cartItems.reduce((acc, item) => acc + item.price, 0);
+
+  const handleDeleteItem = id => {
+    deleteItem(id);
+  };
+
+  useAOS();
   return (
     <>
       <section className="fixed top-0 left-0 w-full h-full flex justify-end items-end bg-[#0505054d] z-10 ">
-        <section className="w-[40rem] h-full flex-end  text-white select-none bg-[#111827]">
+        <section
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          className="w-[40rem] h-full flex-end overflow-scroll text-white select-none bg-[#111827]"
+        >
           <section className="flex flex-col justify-between h-full pb-5 ">
-            <section className="px-10 ">
-              <section className=" pt-5  font-bold  items-center  flex w-full justify-between">
-                <h1 className="text-2xl text-[#dbd1d1]">
-                  Your Shopping Cart ({cartItems?.length})
-                </h1>
-
+            {cartItems.length === 0 ? (
+              <div className="flex flex-col items-center justify-center h-full relative select-none gap-y-5">
                 <IoIosClose
-                  className="cursor-pointer  text-4xl"
+                  className="cursor-pointer absolute  top-5 hover:text-[#fde047] right-5 text-4xl"
                   onClick={handleOpen}
                 />
-              </section>
+                <LazyLoadImage
+                  effect="blur"
+                  wrapperProps={{
+                    style: { transitionDelay: "1s" },
+                  }}
+                  src="https://minimalist-e-commerce.vercel.app/static/media/empty-cart.17f48bd13327a233e04a.png"
+                  className="h-[150px]"
+                  alt=""
+                />
+                <h1 className="font-bold  text-xl">
+                  Explore our products and add to your cart!
+                </h1>
+                <a href="/product-page">
+                  <button className="w-[150px] h-[50px] bg-base-200  rounded-sm uppercase tracking-wider font-bold  text-lg hover:bg-blue-500 hover:text-white">
+                    Shop Now
+                  </button>
+                </a>
+              </div>
+            ) : (
+              <>
+                <section className="px-10 max-sm:px-5 ">
+                  <section className=" pt-5  font-bold  items-center  flex w-full justify-between">
+                    <h1 className="text-2xl text-[#dbd1d1]">
+                      Your Shopping Cart ({cartItems?.length})
+                    </h1>
 
-              {cartItems.length > 0 ? (
-                <section className="grid grid-cols-5 gap-5 mb-10 mt-10  font-bold  select-none text-white text-xl text-center">
-                  <div className="">Product</div>
-                  <div className="">Name</div>
-                  <div className="">Price</div>
-                  <div className="">Quantity</div>
-                  <div className="">Action</div>
-                </section>
-              ) : (
-                <div className="flex flex-col items-center justify-center h-full  select-none gap-y-5">
-                  <img
-                    src="https://minimalist-e-commerce.vercel.app/static/media/empty-cart.17f48bd13327a233e04a.png"
-                    className="h-[150px]"
-                    alt=""
-                  />
-                  <h1 className="font-bold  text-xl">
-                    Explore our products and add to your cart!
-                  </h1>
-                  <a href="/product-page">
-                    <button className="w-[150px] h-[50px] bg-base-200  rounded-sm uppercase tracking-wider font-bold  text-lg hover:bg-blue-500 hover:text-white">
-                      Shop Now
-                    </button>
-                  </a>
-                </div>
-              )}
-
-              <section className=" flex flex-col justify-between">
-                {cartItems.map(item => (
-                  <section className=" flex flex-col justify-between">
-                    <div
-                      key={item.id}
-                      className="grid grid-cols-5 text-center gap-5 items-center select-none  mb-10"
-                    >
-                      <div>
-                        <img
-                          src={item.src}
-                          alt=""
-                          className="object-contain rounded-lg"
-                        />
-                      </div>
-                      <div>
-                        <p className="text-lg  font-bold">{item.name}</p>
-                      </div>
-                      <div>
-                        <p className="font-[900] text-xl  text-red-500">
-                          ${item.price}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="font-[900] text-xl  text-red-500">
-                          {item.quantity}
-                        </p>
-                      </div>
-
-                      <div className="text-3xl flex flex-col justify-center gap-5 items-center">
-                        <Tooltip title="Edit">
-                          <MdEditSquare />
-                        </Tooltip>
-                        <Tooltip title="Delete">
-                          <RiDeleteBin2Fill
-                            onClick={() => handleDeleteItem(item.id)}
-                            className="cursor-pointer"
-                          />
-                        </Tooltip>
-                      </div>
-                    </div>
+                    <IoIosClose
+                      className="cursor-pointer  text-4xl"
+                      onClick={handleOpen}
+                    />
                   </section>
-                ))}
-              </section>
-            </section>
-            <div className=" flex px-8  mt-5 items-center justify-between w-full">
-              <div className="text-left ">
-                <h1 className="text-4xl font-bold  mt-2"> Subtotal</h1>
-                {/* <p className="text-3xl text-red-500 font-bold ">${item?.price}</p> */}
-              </div>
-              <div>
-                <button className=" w-[200px] h-[50px] border-[1px] border-black font-bold  text-xl hover:bg-red-500 cursor-pointer hover:text-white hover:scale-y-110">
-                  Go to Checkout
-                </button>
-              </div>
-            </div>
+
+                  <section className=" flex flex-col justify-between mt-5">
+                    {/* {cartItems.map(item => (
+                      <div
+                        key={item.id}
+                        className="grid grid-cols-5  max-md:grid-cols-2 text-center gap-5 items-center select-none  mb-10"
+                      >
+                        <div>
+                          <LazyLoadImage
+                            effect="blur"
+                            wrapperProps={{
+                              style: { transitionDelay: "1s" },
+                            }}
+                            src={item.src}
+                            alt=""
+                            className="object-contain rounded-lg bg-white max-md:w-[100px]  max-md:h-[100px]"
+                          />
+                        </div>
+                        <div>
+                          <p className="text-sm  font-bold">{item.name}</p>
+                        </div>
+                        <div>
+                          <p className="font-[900] text-xl  text-red-500 max-sm:text-lg ">
+                            ${item.price}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="font-[900] text-xl  text-red-500 max-sm:text-lg">
+                            {item.quantity}
+                          </p>
+                        </div>
+
+                        <div className="text-3xl flex  justify-center gap-5 items-center">
+                          <Tooltip title="Delete">
+                            <RiDeleteBin2Fill
+                              onClick={() => handleDeleteItem(item.id)}
+                              className="cursor-pointer"
+                            />
+                          </Tooltip>
+                        </div>
+                      </div>
+                    ))} */}
+                    {cartItems.map(item => {
+                      return (
+                        <div
+                          key={item.id}
+                          className="flex w-full items-center border border-gray-200 rounded-lg mt-5 overflow-hidden"
+                        >
+                          <img
+                            src={item.src}
+                            alt={item.name}
+                            className="h-24 w-24 object-cover bg-white"
+                          />
+                          <div className="flex flex-col flex-1 p-4">
+                            <div className="flex items-center justify-between">
+                              <h2 className="font-semibold text-lg  max-sm:line-clamp-1">
+                                {item.name}
+                              </h2>
+                              <span className="text-[#f7cd7c] font-bold text-lg">
+                                ${item.price}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between mt-2">
+                              <span className="text-sm ">
+                                Quantity: {item.quantity}
+                              </span>
+                              <button
+                                onClick={() => handleDeleteItem(item.id)}
+                                className="text-red-500 focus:outline-none"
+                              >
+                                <RiDeleteBin2Fill />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </section>
+                </section>
+                <div className="flex max-sm:flex-col gap-5 items-center max-sm:items-startx justify-between px-8 mt-5 pb-2 w-full">
+                  <div className="text-left">
+                    <h1 className="text-3xl font-bold mt-2">Subtotal</h1>
+                    <p className="text-3xl text-[#f7cd7c] font-bold">
+                      ${Total}
+                    </p>
+                  </div>
+                  <button className="w-full max-w-xs max-sm:max-w-full h-14 border border-black font-bold text-xl bg-white text-black hover:bg-red-500 hover:text-white transform hover:scale-105 transition-all duration-300 ease-in-out">
+                    Go to Checkout
+                  </button>
+                </div>
+              </>
+            )}
           </section>
         </section>
-      </section>{" "}
+      </section>
     </>
   );
 };
