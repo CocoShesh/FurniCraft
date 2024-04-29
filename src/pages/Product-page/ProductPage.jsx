@@ -1,8 +1,9 @@
 import React, { useState, useMemo, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../components/Product/data";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import Header from "../../components/Header/Header";
-// import Rating from "../../Ratings/Rating";
 import Products from "../../components/Product/Products";
 import CartContext from "../../context/CartContext";
 import { Button, message } from "antd";
@@ -83,10 +84,16 @@ function Product_Page() {
           {product.name}
         </h2>
         <section className="flex items-center justify-center h-fit w-full  py-10  2xl:w-[1500px] max-lg:px-5 lg:px-16 max-lg:flex-col gap-20 2xl:px-0">
-          <img
+          <LazyLoadImage
+            effect="blur"
+            wrapperProps={{
+              style: { transitionDelay: "1s" },
+            }}
             src={product.imageSrc}
             alt={product.imageAlt}
-            className="w-[300px] rounded-lg brightness-90 hover:brightness-100 max-lg:mb-0 lg:mb-20 bg-white "
+            height={300}
+            width={300}
+            className="w-[450px] rounded-lg brightness-90 hover:brightness-100 max-lg:mb-0 lg:mb-20 bg-white "
           />
           <section className="w-full">
             <h1 className="text-2xl font-bold ">Description</h1>
