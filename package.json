@@ -10,26 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@heroicons/react": "^2.1.1",
-    "@mui/icons-material": "^5.14.8",
-    "@mui/material": "^5.14.8",
-    "@mui/styled-engine-sc": "^5.14.8",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "antd": "^5.8.6",
-    "framer-motion": "^10.16.4",
+    "aos": "3.0.0-beta.6",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "react-icons": "^4.10.1",
     "react-lazy-load-image-component": "^1.6.0",
-    "react-router": "^6.15.0",
     "react-router-dom": "^6.15.0",
-    "react-slick": "^0.29.0",
-    "react-slideshow-image": "^4.2.1",
-    "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.11",
+    "react-toastify": "^10.0.5",
     "swiper": "^10.2.0"
   },
   "devDependencies": {
