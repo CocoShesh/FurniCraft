@@ -27,10 +27,13 @@ function Products() {
                   effect="blur"
                   src={product.imageSrc}
                   alt={product.imageAlt}
+                  wrapperProps={{
+                    style: { transitionDelay: "1s" },
+                  }}
                   className=" object-cover object-center bg-white lg:h-full h lg:w-auto 2xl:w-full 2xl:h-fit "
                 />
               </div>
-              <div className="-mt-4 flex justify-between max-sm:flex-col">
+              <div className="mt-1 flex justify-between max-sm:flex-col">
                 <div>
                   <h3 className=" text-white  w-[150px] text-[18px] font-semibold">
                     <Link
