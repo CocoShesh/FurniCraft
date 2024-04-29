@@ -2,8 +2,6 @@ import React, { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../components/Product/data";
 import Products from "../../components/Product/Products";
-import Banner from "../../components/Banner/Banner";
-import Footer from "../../components/Footer/Footer";
 function ProductDescription() {
   const { productName } = useParams();
   const product = useMemo(
