@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Button, Drawer, Tooltip, Badge } from "antd";
 import { BsCartFill } from "react-icons/bs";
 import AddToCartDrawer from "./Drawer/AddToCartDrawer";
+import NavigationDrawer from "./Drawer/NavigationDrawer";
+import CartContext from "../../context/CartContext";
 function Header() {
   const [isOpenCartDrawer, isSetOpenCartDrawer] = useState(false);
-  const [open, setOpen] = useState(false);
+  const { cartItems } = useContext(CartContext);
+  const [isOpen, isSetOpen] = useState(false);
   const location = useLocation();
   const showDrawer = () => {
-    setOpen(true);
+    isSetOpen(prev => !prev);
   };
-  const onClose = () => {
-    setOpen(false);
-  };
+
   const handleAddToCart = () => {
     isSetOpenCartDrawer(prev => !prev);
   };
@@ -61,15 +62,14 @@ function Header() {
               </Link>
 
               <section className="flex relative ">
-                {/* <Badge count={cartItems.length}> */}
-                <Tooltip title="Open Cart" color="#D81414">
-                  <BsCartFill
-                    // ref={bsCartFillRef}
-                    className="text-[22px] hover:scale-125 cursor-pointer text-white"
-                    onClick={handleAddToCart}
-                  />
-                </Tooltip>
-                {/* </Badge> */}
+                <Badge count={cartItems.length}>
+                  <Tooltip title="Open Cart" color="#D81414">
+                    <BsCartFill
+                      className="text-[22px] hover:scale-125 cursor-pointer text-white"
+                      onClick={handleAddToCart}
+                    />
+                  </Tooltip>
+                </Badge>
               </section>
               <GiHamburgerMenu
                 className="text-2xl mt-1 max-lg:visible lg:hidden cursor-pointer"
@@ -80,48 +80,7 @@ function Header() {
         </section>
       </header>
 
-      <Drawer placement="left" onClose={onClose} open={open}>
-        <section className=" inline-grid gap-5 w-full items-center justify-center  mt-auto">
-          <Link
-            to="/categories"
-            className={` font-bold uppercase text-[25px] ${
-              location.pathname === "/categories" && "text-yellow-300"
-            }`}
-          >
-            Categories
-          </Link>
-          <Link
-            to="/product-page"
-            className={`font-bold uppercase text-[25px] ${
-              location.pathname.startsWith("/product-page")
-                ? "text-yellow-300"
-                : ""
-            }`}
-          >
-            Product Page
-          </Link>
-
-          <Link to="/login">
-            <h3
-              className={` font-bold uppercase text-[25px] ${
-                location.pathname === "/login" && "text-yellow-300"
-              }`}
-            >
-              Register
-            </h3>
-          </Link>
-          <Link to="/register">
-            <h3
-              className={` font-bold uppercase text-[25px] ${
-                location.pathname === "/register" && "text-yellow-300"
-              }`}
-            >
-              Login
-            </h3>
-          </Link>
-        </section>
-      </Drawer>
-
+      {isOpen && <NavigationDrawer showDrawer={showDrawer} />}
       {isOpenCartDrawer && <AddToCartDrawer handleOpen={handleAddToCart} />}
     </>
   );
