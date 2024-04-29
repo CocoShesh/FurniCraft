@@ -25,11 +25,11 @@ function Products() {
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:brightness-100  brightness-75  lg:h-80 2xl:h-auto">
                 <LazyLoadImage
                   effect="blur"
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
                   wrapperProps={{
                     style: { transitionDelay: "1s" },
                   }}
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
                   className=" object-cover object-center bg-white lg:h-full h lg:w-auto 2xl:w-full 2xl:h-fit "
                 />
               </div>
