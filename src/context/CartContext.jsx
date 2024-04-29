@@ -1,12 +1,22 @@
 import React, { createContext, useEffect, useState } from "react";
-
+import { toast } from "react-hot-toast";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = item => {
-    if (cartItems.some(existingItem => existingItem.id === item.id)) {
+    const exisitingIndex = cartItems.findIndex(
+      existingItem => existingItem.id === item.id
+    );
+    if (exisitingIndex !== -1) {
+      const updatedCart = [...cartItems];
+      const existingItem = updatedCart[exisitingIndex];
+      existingItem.quantity += item.quantity;
+      existingItem.price += item.price;
+
+      setCartItems(updatedCart);
+      window.localStorage.setItem("cart", JSON.stringify(updatedCart));
       return;
     }
     setCartItems(prevItems => {
