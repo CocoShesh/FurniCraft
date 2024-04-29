@@ -104,7 +104,7 @@ const AddToCartDrawer = ({ handleOpen }) => {
                     })}
                   </section>
                 </section>
-                <div className="flex max-sm:flex-col gap-5 items-center max-sm:items-start justify-between px-8 mt-5 pb-2 w-full">
+                <div className="flex max-sm:flex-col gap-5 items-center  border-t  border-dashed  max-sm:items-start justify-between px-8 mt-5 py-2 w-full">
                   <div className="text-left">
                     <h1 className="text-3xl font-bold mt-2">Subtotal</h1>
                     <p className="text-3xl text-[#f7cd7c] font-bold">
