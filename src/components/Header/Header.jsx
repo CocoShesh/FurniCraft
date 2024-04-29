@@ -41,7 +41,8 @@ function Header() {
               <Link
                 to="/product-page"
                 className={` font-bold uppercase text-[18px] max-lg:hidden  transition-colors duration-300 ease-out hover:text-yellow-300  ${
-                  location.pathname === "/product-page" && "text-yellow-300"
+                  location.pathname.startsWith("/product-page") &&
+                  "text-yellow-300"
                 } `}
               >
                 Product Page
@@ -91,12 +92,15 @@ function Header() {
           </Link>
           <Link
             to="/product-page"
-            className={` font-bold uppercase text-[25px] ${
-              location.pathname === "/product-page" && "text-yellow-300"
+            className={`font-bold uppercase text-[25px] ${
+              location.pathname.startsWith("/product-page")
+                ? "text-yellow-300"
+                : ""
             }`}
           >
             Product Page
           </Link>
+
           <Link to="/login">
             <h3
               className={` font-bold uppercase text-[25px] ${
