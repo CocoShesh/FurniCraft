@@ -7,7 +7,7 @@ const useAOS = () => {
     AOS.init();
   }, []);
 
-  return null; // Since this hook is only for initialization, it doesn't return anything
+  return null;
 };
 
 export default useAOS;
