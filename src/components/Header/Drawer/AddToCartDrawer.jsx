@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 import { IoIosClose } from "react-icons/io";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Tooltip } from "antd";
 import { RiDeleteBin2Fill } from "react-icons/ri";
-import { MdEditSquare } from "react-icons/md";
 import CartContext from "../../../context/CartContext";
 import useAOS from "../../../hooks/UseAnimations";
 const AddToCartDrawer = ({ handleOpen }) => {
