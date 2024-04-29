@@ -1,6 +1,4 @@
 import React from "react";
-import { SiFacebook } from "react-icons/si";
-import { AiFillGoogleCircle, AiFillInstagram } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Tooltip } from "antd";
 import ImageCarousel from "./ImageCarousel";
