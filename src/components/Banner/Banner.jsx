@@ -1,5 +1,6 @@
 import React from "react";
 import banner from "../../assets/banner.jpg";
+
 function Banner() {
   return (
     <div className="flex max-sm:px-5 px-12 pt-10 pb-10  h-[500px] max-md:h-fit   max-sm:w-full max-sm:flex-col-reverse items-center justify-center ">
