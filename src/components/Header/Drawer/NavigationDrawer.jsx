@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { IoIosClose } from "react-icons/io";
 import useAOS from "../../../hooks/UseAnimations";
@@ -11,6 +11,16 @@ import {
 const NavigationDrawer = ({ showDrawer }) => {
   useAOS();
   const location = useLocation();
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (body) {
+      body.style.overflow = "hidden";
+      return () => {
+        body.style.overflow = "auto";
+      };
+    }
+  }, []);
   return (
     <>
       <section className="fixed top-0 left-0 w-full h-full flex justify-start items-start lg:hidden max-lg:visible bg-[#0505054d] z-10 ">
