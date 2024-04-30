@@ -7,9 +7,9 @@ function SignUp() {
     <ImageCarousel>
       <div className="flex flex-col justify-center   px-6 py-8 lg:px-8 max-sm:w-auto max-sm:px-5 ">
         <Tooltip title="Close">
-          <a href="/" className="self-end">
+          <Link to="/" className="self-end">
             <span> &#10060;</span>
-          </a>
+          </Link>
         </Tooltip>
         <div className=" sm:w-full sm:max-w-sm">
           <h2 className=" text-4xl font-bold leading-9 tracking-tight text-gray-900">
