@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { Carousel } from "antd";
-import Login from "./Login";
-import SignUp from "./SIgnUp";
+import useAOS from "../../hooks/UseAnimations";
 
 export default function ImageCarousel({ children }) {
   const [isCreateAccount, setIsCreateAccount] = useState(false);
+
+  useAOS();
+
   return (
     <>
-      <section className="flex min-h-screen w-full items-center justify-center max-lg:px-20 max-sm:px-3 px-20   ">
+      <section
+        data-aos="zoom-in"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-out"
+        className="flex min-h-screen w-full items-center justify-center max-lg:px-20 max-sm:px-3 px-20   "
+      >
         <section className="flex items-center justify-center my-2  2xl:w-[1300px] rounded-lg  bg-[#e9e9e9] w-full max-xl:w-[500px]  max-sm:w-full max-sm:flex-col ">
           <section className="max-xl:hidden">
             <Carousel autoplay className="w-[700px]   " effect="fade">
