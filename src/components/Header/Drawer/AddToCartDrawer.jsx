@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { IoIosClose } from "react-icons/io";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -15,9 +15,19 @@ const AddToCartDrawer = ({ handleOpen }) => {
   };
 
   useAOS();
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (body) {
+      body.style.overflow = "hidden";
+      return () => {
+        body.style.overflow = "auto";
+      };
+    }
+  }, []);
   return (
     <>
-      <section className="fixed top-0 left-0 w-full h-full flex justify-end items-end bg-[#0505054d] z-10 ">
+      <section className="fixed top-0 left-0 w-full h-full flex justify-end items-end  bg-[#0505054d] z-10 ">
         <section
           data-aos="fade-left"
           data-aos-offset="300"
